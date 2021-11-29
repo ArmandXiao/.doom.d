@@ -2,7 +2,8 @@
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
-
+(setq scroll-margin 7)  ;; scrolloff in vim
+(setq global-hl-line-mode 1)
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
@@ -33,7 +34,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
@@ -109,7 +110,7 @@
 ;; windows
 (global-set-key (kbd "M-H") 'evil-window-left)
 (global-set-key (kbd "M-L") 'evil-window-right)
-(global-set-key (kbd "M-J") 'evil-window-bottom)
+(global-set-key (kbd "M-J") 'evil-window-down)
 (global-set-key (kbd "M-K") 'evil-window-up)
 
 (map! :leader "SPC" 'nil)
@@ -124,6 +125,12 @@
 (global-set-key (kbd "C-a") 'evil-numbers/inc-at-pt-incremental)
 (global-set-key (kbd "C-x") 'evil-numbers/dec-at-pt-incremental)        ;; FIXME: cannot work now
 
+;; ======= PACKAGES ========
 ;; M-x package-install RET doom-modeline RET
 (require 'doom-modeline)
 (doom-modeline-mode 1)
+
+;; default shell is fish shell
+;; (use-package vterm)
+;; (setq shell-file-name "/bin/fish"
+;;       vterm-max-scrollback 5000)
