@@ -54,11 +54,10 @@
 ;; they are implemented.
 
 ;; cursor indicator
-(setq evil-default-cursor (quote (t "#750000"))
+(setq
     evil-visual-state-cursor '(box "#880000")
-    evil-normal-state-cursor '(box "#750000")
-    evil-insert-state-cursor '(box "#e2e222")
-    ;; evil-insert-state-cursor '((bar . 1) "White")
+    evil-normal-state-cursor '(box "White")
+    evil-insert-state-cursor '((bar . 1) "White")
     )
 
 ;; ========= REMAP KEYS =========
@@ -108,10 +107,10 @@
 (global-set-key (kbd "Q") 'evil-window-delete)
 
 ;; windows
-(global-set-key (kbd "C-h") 'evil-window-left)
-(global-set-key (kbd "C-l") 'evil-window-right)
-(global-set-key (kbd "C-j") 'evil-window-bottom)
-(global-set-key (kbd "C-k") 'evil-window-up)
+(global-set-key (kbd "M-H") 'evil-window-left)
+(global-set-key (kbd "M-L") 'evil-window-right)
+(global-set-key (kbd "M-J") 'evil-window-bottom)
+(global-set-key (kbd "M-K") 'evil-window-up)
 
 (map! :leader "SPC" 'nil)
 (map! :leader "SPC l" '+evil/window-vsplit-and-follow)
@@ -124,3 +123,7 @@
 ;; evil-numbers
 (global-set-key (kbd "C-a") 'evil-numbers/inc-at-pt-incremental)
 (global-set-key (kbd "C-x") 'evil-numbers/dec-at-pt-incremental)        ;; FIXME: cannot work now
+
+;; M-x package-install RET doom-modeline RET
+(require 'doom-modeline)
+(doom-modeline-mode 1)
